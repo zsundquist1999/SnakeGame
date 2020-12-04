@@ -3,10 +3,13 @@ package wsu.edu;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class PrimaryController {
 
@@ -39,5 +42,11 @@ public class PrimaryController {
     System.out.println("Player name = " + playerName.getText());
     System.out.println("Snake Length = " + snakeLength.getValue());
     System.out.println("Selected color = " + snakeColor.getValue());
+    Node source = (Node) actionEvent.getSource();
+    Window theStage = source.getScene().getWindow();
+
+    SnakePane snakePane = new SnakePane();
+    snakePane.start((Stage) theStage);
+
   }
 }
